@@ -1,139 +1,92 @@
-# VideoFrameInterpolation_Dance
+# Predicting survey responses
 
 
-<h1 align="center"> VideoFrameInterpolation </h1>
+<h5 align="center"> Machine learning project  (2020-09 ~ 12) </h5>
 
-<h1 align="center"> VFI Model </h1>
+This repository is a project I did in a machine learning class at school. In this repository you can find several python files, the final project is Predicting survey response. The project data is not publicly available as it is used in the field.
 
-<h5 align="center"> Capstone Project  (2022-09 ~ ing) </h5>
+##### The project in this repository is divided into five main parts.
 
-* This repository is still a work in progress.
+1. model hyperparameter tuning</li>
+2. unbalanced data handling</li>
+3. submission ensemble</li>
+4. machine learning pipelines</li>
+5. Predicting survey response</li>
 
-`VideoFrameInterpolation_Dance` is the Image interpolation is the process of estimating new pixel values in an image based on the values of surrounding pixels.
-We want to perform this image interpolation using computer vision techniques.
-We want to focus on interpolation in an image with an object in the center.
+This is a course I took in the second semester of my sophomore year, and I worked hard on it for another semester. Especially for the last 5 projects, it was a cagle competition, and I tried different ways to improve the performance.
 
-We build a new model based on the existing video frame interpolation model "AdaCoF: Adaptive Collaboration of Flows for Video Frame Interpolation".
-`We propose a video frame interpolation model that can be more motion-oriented and object-oriented for dance data, expecting to improve performance and reduce parameters with the new model.`
+<h2 align="center"> Visualization </h2>
 
 <p align="center"> 
-<img src="gif/뉴진스-NewJeans-_Hype-boy_-DANCECOVER-_-안무-거울모드-_-MIRROREDbefore.gif" alt="Animated gif pacman game" height="360px", width="448px">
-</p>
-<p align="center"> 
-<img src="gif/뉴진스-NewJeans-_Hype-boy_-DANCECOVER-_-안무-거울모드-_-MIRROREDafter.gif" alt="Animated gif pacman game" height="360px", width="448px">
-</p>
+
+##### Feature importance visualization through SHAP module.
+![stronghold logo](img/feature_importance.png)
+
+##### Model predict correlation heatmap visualization.
+![stronghold logo](img/model_correlation.png)
+
+##### After Model Ensemble, compare score of models.
+![stronghold logo](img/model_ensemble_score.png)
 
 
-![stronghold logo](img/interpolation_image1.png)
-![stronghold logo](img/interpolation_image2.png)
+<h2 align="center"> Project Description </h2>
 
 
-The photo above shows an image from an earlier point in time, an interpolated image, and an image from a later point in time. The interpolated image is created from the images from the earlier and later viewpoints.
-
-** I'll post the interpolated gif after I get permission from the video's copyright holder. **
-
-![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
-
-
-<h2> Project Files Description </h2>
-
-<h4>Directories:</h4>
-<ul>
-  <li><b> dancing folder </b> - Inside the dancing folder, there are folders of models(AdaCoF_ori, AdaCoF_1, AdaCoF_2, AdaCoF_3, AdaCoF_4-2, AdaCoF_5-2) trained with dancing data, each trained in a different way.
-  And inside each model folder, we have the model folder, train.py, and trainer.py needed to train the model, and we have the model trained to 50 epochs and 60 epochs.
-
-
-  <li><b>vimeo folder</b> - The model folder trained with vimeo data is organized like the Vimeo folder.</li>
-
-
-  <li><b>interpolate_img folder</b> - This is the folder that contains the before and after images for each model.</li>
-
-
-  <li><b>interpolate_video folder</b> - This is the folder that contains the before and after videos for each model.</li>
-
-
-  <li><b>output test</b> - This is the folder where you save the results of your image interpolation.</li>
-
-
-  <li><b>output_youtube_test</b> - Foldup of the interpolation result of Youtube data with a model trained on Dancing data.</li>
-
-
-  <li><b>output_youtube_test_vimeo</b> - Foldup of the interpolation result of Youtube data with a model trained on Vimeo data.</li>
-</ul>
+<h4>Projects</h4>
+<ul>In this section, we'll discuss five different projects.<br />
 
 
 
-<h4>Executable Files:</h4>
-<ul>
-  <li><b> interpolate_image.py </b> - A pyfile that runs image interpolation after specifying a particular model.
+  <b>1. Model hyperparameter tunning</b> - Using two ongoing competitions on Kaggle, Predict Future Sales (link : https://www.kaggle.com/competitions/competitive-data-science-predict-future-sales) and Categorical Feature Encoding Challenge (link : https://www.kaggle.com/competitions/cat-in-the-dat), we performed ensembles on various submissions to improve our performance.<br />
+
+  <b>2. Imbalanced Data Processing</b> - Using the WSDM - KKBox's Music Recommendation Challenge ( link : https://www.kaggle.com/competitions/kkbox-music-recommendation-challenge ) dataset released on Cagle, experiment with the Imbalanced Data Processing technique presented in the paper Survey of resampling techniques for improving classification performance in unbalanced datasets ( link : https://arxiv.org/abs/1608.06048 ).
+  For the experiments, the dataset is constructed with class ratios of 10:90, 1:99, and 0.1:99.9, and then three situations are created.
+  We use Accuracy, ROC-AUC, Recall, Precision, and F1-score as evaluation measures.
+  Here we can see that the imbalanced Data Processing technique improves the accuracy for relatively small classes, even though the overall accuracy remains the same. We also see that in these cases, mbalanced Data Processing should be used when the discovery of relative silver classes is important.
+  And I learned that imbalanced Data Processing techniques include Under_Sampling, Over_Sampling, Combine, and Ensemble. You can see the details in the pptx file.<br />
 
 
-  <li><b> interpolate_video.py </b> - A pyfile that runs video interpolation after specifying a particular model.</li>
+  <b>3. Submissions Ensemble</b> - Using two ongoing competitions on Kaggle, Predict Future Sales (link : https://www.kaggle.com/competitions/competitive-data-science-predict-future-sales) and Categorical Feature Encoding Challenge (link : https://www.kaggle.com/competitions/cat-in-the-dat), we performed ensembles on various submissions to improve our performance.
+  We used arithmetic mean, weighted mean, geometric mean, and median mean for ensembling submissions, as well as several combinations.
+  We checked the results by ensembling submissions with similar performance and submissions with low correlation. You can see the detailed experimental table in Submission Ensemble.pptx.<br />
 
+  <b>4. Model pipeline</b> -Analyze the attributes of a department store customer's purchases over the course of a year to predict the customer's gender (0: female, 1: male).
 
-  <li><b>evaluation.py </b> - A pyfile that calculates the PSNR, SSIM score of a model by specifying a specific model and dataset.</li>
+Build an overall machine learning pipeline.
+1. Read Data<br />
+2. EDA (Identify Missing Values, Identify Data Attributes, Identify Similarities)<br />
+3. Data processing (missing value handling, outlier handling, character variable encoding, feature selection)<br />
+4. Model Hyperparameter Optimization
+- Models used LogisticRegression, KNN, SupportVectorMachine, Extra tree, MLP<br />
+5. Model Ensemble
+- Tries all combinations and picks the best performing one.
+- Finally, stack all the models above and select the best performing combination.
+- Once again, we proceed with the submission ensemble.<br />
 
+* Model Pipeline Strategy
+The model pipeline strategy we envisioned is as follows: the traditional feature selection approach is to use the feature selection power-law results from a single model to lock in on a specific dataset, and then proceed with the rest of the pipeline.<br />
+-> I realized that the important features might be different for each model, so I proceeded with the feature selection for each model presented above. If we do it for each model, the important features will be slightly different, and we will end up with as many different train datasets as there are models. Each model will have its own dataset and use it to make its own predictions. Since the datasets and models are different, the predictions are less correlated than before, and the performance of each is expected to improve because each has an optimal feature selection. Finally, we run the ensemble through all the combinations of the number of cases with their respective prediction results, and then stack the results by stacking the results that are less correlated with each other, and run the submission ensemble once again to generate the final submission.<br />
 
-  <li><b>MakeTripletset.py </b> - A pyfile that builds images into tripletsets at specific intervals.</li>
+  <b>5. Predicting survey responses</b> -This is the final project, Survey Response Prediction. 
+- Setup : Due to the limitation of computing resources, we first convert the type of data values in the dataset to reduce the memory capacity. Fix the seed to prevent the value from varying from run to run.<br />
 
+- Before making predictions, we needed to think about a few things: this data is real-world data, and there are a lot of errors in the data because it was collected in the field. Therefore, we remove data that will not help us make predictions, for example, columns with more than 30% missing values. Also, this data has a time series nature, so using future information can cause the model to learn incorrectly, which can lead to overfitting.
 
-![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+1. Data processing: Remove outliers and missing values. Apply one-hot encoding for categorical and standard scaling for numerical.<br />
+2. Create new features: Add features to improve the prediction results by adding ideas in various ways.<br />
+3. feature selection<br />
+4. divide the dataset: 6:4, 7:3 for experiments.<br />
+5. create model
+- Models used: DNN, LGBM, LogisticRegression, CatBoost, AdaBoost, XGB, RandomForest<br />
+6. Model Ensemble, Bagging
+- Ensemble the models and bag some of them. Due to the nature of this data, there was a lot of overfitting, and bagging compensated for this, resulting in a lot of performance improvement.<br />
+7. Submission ensemble: We ensemble the finalized submissions in various combinations and expect to improve performance.<br />
 
-
-# Model Pipeline
--   The pipeline of our final proposed model.
-
-![stronghold logo](img/model.png)
-
-The main techniques of the model are described below.
-1. Progress in two directions
-2. Models that can inject image differencing information
-
-
-# Model evaluation
--   Below is a table of results from evaluating the different models we devised on different datasets.
-
-'원본 Adacof' refers to the original Adacof model and the other models are the models we devised.
-
-- The result table of the model trained on the dancing data.
-![stronghold logo](img/evaluation1.png)
-
-- The result table of the model trained on the vimeo data.
-![stronghold logo](img/evaluation2.png)
-
-
-<h5>We found that our method produced a model with better performance and less computation than the original Adacof model!</h5>
-
-![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
-
-<h2> Paper References</h2>
-<ul>
-  <li><p>	CVPR 2020 Computer Vision and Pattern Recognition (cs.CV)	arXiv:1907.10244 [cs.CV], 'AdaCoF: Adaptive Collaboration of Flows for Video Frame Interpolation' [Online].</p>
-      <p>Available: https://arxiv.org/abs/1907.10244</p>
-  </li>
-
-</ul>
-
-<h2> Code References</h2>
-<ul>
-  <li><p>	HyeongminLEE
-, 'AdaCoF-pytorch' [Online].</p>
-      <p>Available: https://github.com/HyeongminLEE/AdaCoF-pytorch</p>
-  </li>
 
 </ul>
 
 
 
-<h2> Dataset References</h2>
-<ul>
-  <li><p>Korea Intelligent and Information Society Agency, 'K-pop choreography video' [Online].</p>
-      <p>Available: https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&dataSetSn=52</p>
-  </li>
-  <li><p>IJCV 2019
-Video Enhancement with Task-Oriented Flow, 'Vimeo Triplet dataset (for temporal frame interpolation)'. [Online].</p>
-      <p>Available: http://toflow.csail.mit.edu/</p>
-  </li>
-</ul>
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
