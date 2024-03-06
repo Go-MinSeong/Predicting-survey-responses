@@ -1,7 +1,7 @@
 # Predicting survey responses
 
 
-<h5 align="center"> Machine learning project  (2020-09 ~ 12) </h5>
+<h5 align="center"> Machine learning project  (2021-09 ~ 12) </h5>
 
 This repository is a project I did in a machine learning class at school. In this repository you can find several python files, the final project is Predicting survey response. The project data is not publicly available as it is used in the field.
 
